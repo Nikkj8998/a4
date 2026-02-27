@@ -50,7 +50,7 @@ const Footer = () => {
               />
             </motion.div>
             <p className="font-body text-black/80 leading-relaxed">
-              Association for Social Transformation & Human Advancement
+              <span className="font-bold">A</span>ssociation for <span className="font-bold">S</span>ocial <span className="font-bold">T</span>ransformation & <span className="font-bold">H</span>uman <span className="font-bold">A</span>dvancement
             </p>
             <p className="font-body text-black/60 text-sm mt-4">
               Empowering rural India through dignity, not charity.

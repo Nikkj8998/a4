@@ -45,18 +45,24 @@ const HeroSection = () => {
           className="mb-6"
         >
           <span className="font-body text-golden text-lg md:text-xl tracking-[0.3em] uppercase">
-            Association for Social Transformation & Human Advancement
+            <span className="text-white font-bold">A</span>ssociation for <span className="text-white font-bold">S</span>ocial <span className="text-white font-bold">T</span>ransformation & <span className="text-white font-bold">H</span>uman <span className="text-white font-bold">A</span>dvancement
           </span>
         </motion.div>
 
-        <motion.h1
+        <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5 }}
-          className="font-display text-6xl md:text-8xl lg:text-9xl text-cream mb-6"
+          className="mb-6"
         >
-          आस्था
-        </motion.h1>
+          <div className="w-32 h-32 md:w-48 md:h-48 bg-white rounded-full flex items-center justify-center p-4 shadow-xl mx-auto">
+            <img 
+              src="/hero-logo.png" 
+              alt="Astha Logo" 
+              className="w-full h-full object-contain"
+            />
+          </div>
+        </motion.div>
 
         <motion.p
           initial={{ opacity: 0, y: 40 }}
