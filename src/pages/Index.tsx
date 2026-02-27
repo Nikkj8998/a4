@@ -2,7 +2,7 @@ import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
 import PhilosophySection from '@/components/PhilosophySection';
 import PillarsSection from '@/components/PillarsSection';
-import HolisticModel from '@/components/HolisticModel';
+
 import ProgramsSection from '@/components/ProgramsSection';
 import ImpactSection from '@/components/ImpactSection';
 import VisionSection from '@/components/VisionSection';
@@ -16,7 +16,7 @@ const Index = () => {
       <HeroSection />
       <PhilosophySection />
       <PillarsSection />
-      <HolisticModel />
+     
       <ProgramsSection />
       <VisionSection />
       <ConnectSection />

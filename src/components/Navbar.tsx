@@ -109,7 +109,7 @@ const Navbar = () => {
                   <NavigationMenuTrigger
                     className="bg-transparent hover:bg-transparent focus:bg-transparent data-[state=open]:bg-transparent font-body text-sm font-medium tracking-wide transition-all duration-300 hover:opacity-70 border-none h-auto p-0 text-foreground"
                   >
-                    Our Work
+                    Our Programs
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <ul className="grid w-[200px] gap-3 p-4 bg-background border border-border rounded-md shadow-xl">
@@ -188,7 +188,7 @@ const Navbar = () => {
 
               <div className="flex flex-col items-center gap-4">
                 <span className="font-display text-2xl text-golden">
-                  Our Work
+                  Our Programs
                 </span>
                 {programs.map((program) => (
                   <button

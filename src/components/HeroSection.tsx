@@ -45,7 +45,11 @@ const HeroSection = () => {
           className="mb-6"
         >
           <span className="font-body text-golden text-lg md:text-xl tracking-[0.3em] uppercase">
-            <span className="text-white font-bold">A</span>ssociation for <span className="text-white font-bold">S</span>ocial <span className="text-white font-bold">T</span>ransformation & <span className="text-white font-bold">H</span>uman <span className="text-white font-bold">A</span>dvancement
+            <span className="text-white font-bold text-[1.2em]">A</span>ssociation for{" "}
+            <span className="text-white font-bold text-[1.2em]">S</span>ocial{" "}
+            <span className="text-white font-bold text-[1.2em]">T</span>ransformation &{" "}
+            <span className="text-white font-bold text-[1.2em]">H</span>uman{" "}
+            <span className="text-white font-bold text-[1.2em]">A</span>dvancement
           </span>
         </motion.div>
 
@@ -57,7 +61,7 @@ const HeroSection = () => {
         >
           <div className="w-32 h-32 md:w-48 md:h-48 bg-white rounded-full flex items-center justify-center p-4 shadow-xl mx-auto">
             <img 
-              src="/hero-logo.png" 
+              src="/logo.png" 
               alt="Astha Logo" 
               className="w-full h-full object-contain"
             />

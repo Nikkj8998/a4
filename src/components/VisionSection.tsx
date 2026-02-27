@@ -41,8 +41,8 @@ const VisionSection = () => {
             <span className="font-body text-accent text-sm tracking-[0.2em] uppercase mb-6 block">
               The Road Ahead
             </span>
-            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-foreground mb-8">
-              Our 5-Year Vision
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-foreground mb-8">
+              STRATEGIC PLAN FOR NEXT 5 YEARS
             </h2>
             <p className="font-body text-lg text-muted-foreground leading-relaxed">
               A cluster of villages needs to be developed, not just one. We want
