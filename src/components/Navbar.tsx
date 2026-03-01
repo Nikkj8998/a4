@@ -40,12 +40,10 @@ const Navbar = () => {
   }, [isHomePage, location.hash]);
 
   const programs = [
-    { title: "Swadhar", href: "/swadhar" },
-    { title: "Equipment Bank", href: "/agri-equipment-bank" },
-    { title: "Organic Farming", href: "/organic-farming" },
-    { title: "Solar Power", href: "/solar-power" },
-    { title: "E-Riksha", href: "/e-riksha" },
-    { title: "Bamboo Plantation Study", href: "/bamboo-plantation-study" },
+    { title: "Natural Resource Management", href: "/nrm" },
+    { title: "Sustainable Livelihoods", href: "/livelihoods" },
+    { title: "Empowering Rural Youth", href: "/youth-empowerment" },
+    { title: "Empowering Rural Women", href: "/women-empowerment" },
   ];
 
   const handleNavClick = (href: string) => {

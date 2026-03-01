@@ -7,44 +7,74 @@ import { Sprout, Sun, Leaf, Scale, Heart, ChevronRight } from 'lucide-react';
 
 const programs = [
   {
-    category: 'Economic Empowerment',
-    icon: Sprout,
+    category: 'Natural Resource Management',
+    icon: Leaf,
     items: [
       {
-        title: 'Swadhar',
-        description: 'Collaborative initiative with Jnana Prabodhini focusing on livelihood, environment, and governance in Velhe Block.',
-        link: '/swadhar'
+        title: 'Water Conservation',
+        description: 'Implementing watershed management and traditional water harvesting techniques to ensure year-round water security.',
       },
       {
-        title: 'Equipment Bank',
-        description: 'Farmers can\'t afford equipment, so we buy it and rent it out. This allows them to continue farming instead of quitting due to capital costs. Supported by Persistent Systems.',
-        link: '/agri-equipment-bank'
+        title: 'Soil Health',
+        description: 'Promoting organic practices and soil testing to restore fertility and reduce dependence on chemical fertilizers.',
       },
       {
-        title: 'Organic Farming',
-        description: 'Demonstrations and training programs that transition farmers to sustainable, chemical-free agriculture while improving yields and income.',
-        link: '/organic-farming'
+        title: 'Biodiversity',
+        description: 'Protecting local flora and fauna in the Western Ghats through community-led conservation efforts.',
       },
     ],
   },
   {
-    category: 'Livestock & Infrastructure',
+    category: 'Sustainable Livelihoods',
+    icon: Sprout,
+    items: [
+      {
+        title: 'Agri-Equipment Bank',
+        description: 'Providing affordable access to modern farming tools to reduce labor and increase productivity for small-scale farmers.',
+      },
+      {
+        title: 'Goat Farming',
+        description: 'Transforming traditional livestock rearing into a scientific and profitable enterprise for landless families.',
+      },
+      {
+        title: 'Market Linkages',
+        description: 'Connecting rural producers directly with urban markets to ensure fair prices and eliminate middlemen.',
+      },
+    ],
+  },
+  {
+    category: 'Empowering Rural Youth',
+    icon: Scale,
+    items: [
+      {
+        title: 'Skill Development',
+        description: 'Vocational training in locally relevant trades to prevent distress migration to cities.',
+      },
+      {
+        title: 'Digital Literacy',
+        description: 'Bridging the digital divide by providing computer education and internet access in remote villages.',
+      },
+      {
+        title: 'Leadership Training',
+        description: 'Cultivating the next generation of rural leaders to drive community development from within.',
+      },
+    ],
+  },
+  {
+    category: 'Empowering Rural Women',
     icon: Heart,
     items: [
       {
-        title: 'Solar Power',
-        description: 'Providing solar-powered street and home lighting in three villages of Velhe Block, sponsored by Xoriant.',
-        link: '/solar-power'
+        title: 'Self-Help Groups',
+        description: 'Fostering financial independence through micro-savings and collective entrepreneurship.',
       },
       {
-        title: 'E-Riksha',
-        description: 'Targeted transport project providing mobility for school children, patients, and senior citizens in the 18 Gav Maval region.',
-        link: '/e-riksha'
+        title: 'Health & Nutrition',
+        description: 'Awareness programs focusing on maternal health and balanced nutrition for rural families.',
       },
       {
-        title: 'Bamboo Plantation Feasibility Study',
-        description: 'Conducted a study with the Maharashtra Bamboo Promotion Foundation to test bamboo as a resilient crop for the Velhe region.',
-        link: '/bamboo-plantation-study'
+        title: 'Legal Awareness',
+        description: 'Educating women about their rights and providing support for social and economic justice.',
       },
     ],
   },
@@ -99,14 +129,10 @@ const ProgramsSection = () => {
                     <motion.div 
                       key={item.title}
                       whileHover={{ x: 8 }}
-                      onClick={() => item.link && navigate(item.link)}
-                      className={`border-l-2 border-golden/50 pl-6 py-2 ${item.link ? 'cursor-pointer' : ''}`}
+                      className={`border-l-2 border-golden/50 pl-6 py-2`}
                     >
                       <div className="flex items-center gap-2 group">
                         <h4 className="font-display text-lg text-foreground mb-2">{item.title}</h4>
-                        {item.link && (
-                          <ChevronRight className="w-4 h-4 text-golden opacity-0 group-hover:opacity-100 transition-opacity" />
-                        )}
                       </div>
                       <p className="font-body text-muted-foreground text-sm leading-relaxed">{item.description}</p>
                     </motion.div>
