@@ -40,7 +40,7 @@ const Navbar = () => {
   }, [isHomePage, location.hash]);
 
   const programs = [
-    { title: "Strengthening Livelihoods", href: "/livelihoods" },
+    { title: "Strengthening Livelihoods", href: "/strengthening-livelihoods" },
     { title: "Enhancing Ecosystems", href: "/ecosystems" },
     { title: "Civic Amenities & Services", href: "/civic-services" },
     { title: "Education & Health", href: "/education-health" },
