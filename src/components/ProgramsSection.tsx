@@ -7,25 +7,7 @@ import { Sprout, Sun, Leaf, Scale, Heart, ChevronRight } from 'lucide-react';
 
 const programs = [
   {
-    category: 'Natural Resource Management',
-    icon: Leaf,
-    items: [
-      {
-        title: 'Water Conservation',
-        description: 'Implementing watershed management and traditional water harvesting techniques to ensure year-round water security.',
-      },
-      {
-        title: 'Soil Health',
-        description: 'Promoting organic practices and soil testing to restore fertility and reduce dependence on chemical fertilizers.',
-      },
-      {
-        title: 'Biodiversity',
-        description: 'Protecting local flora and fauna in the Western Ghats through community-led conservation efforts.',
-      },
-    ],
-  },
-  {
-    category: 'Sustainable Livelihoods',
+    category: 'Strengthening Livelihoods',
     icon: Sprout,
     items: [
       {
@@ -43,38 +25,56 @@ const programs = [
     ],
   },
   {
-    category: 'Empowering Rural Youth',
+    category: 'Enhancing Ecosystems/ Environment',
+    icon: Leaf,
+    items: [
+      {
+        title: 'Water Conservation',
+        description: 'Implementing watershed management and traditional water harvesting techniques to ensure year-round water security.',
+      },
+      {
+        title: 'Soil Health',
+        description: 'Promoting organic practices and soil testing to restore fertility and reduce dependence on chemical fertilizers.',
+      },
+      {
+        title: 'Biodiversity',
+        description: 'Protecting local flora and fauna in the Western Ghats through community-led conservation efforts.',
+      },
+    ],
+  },
+  {
+    category: 'Improving Access to Civic Amenities & Services',
     icon: Scale,
     items: [
       {
-        title: 'Skill Development',
-        description: 'Vocational training in locally relevant trades to prevent distress migration to cities.',
+        title: 'Solar Power',
+        description: 'Providing solar-powered street and home lighting in remote villages to improve safety and quality of life.',
+      },
+      {
+        title: 'Rural Transport',
+        description: 'Targeted transport solutions providing mobility for school children, patients, and senior citizens.',
       },
       {
         title: 'Digital Literacy',
         description: 'Bridging the digital divide by providing computer education and internet access in remote villages.',
       },
-      {
-        title: 'Leadership Training',
-        description: 'Cultivating the next generation of rural leaders to drive community development from within.',
-      },
     ],
   },
   {
-    category: 'Empowering Rural Women',
+    category: 'Improving Quality of Life through Education and Health',
     icon: Heart,
     items: [
       {
-        title: 'Self-Help Groups',
-        description: 'Fostering financial independence through micro-savings and collective entrepreneurship.',
-      },
-      {
-        title: 'Health & Nutrition',
+        title: 'Maternal & Child Health',
         description: 'Awareness programs focusing on maternal health and balanced nutrition for rural families.',
       },
       {
-        title: 'Legal Awareness',
-        description: 'Educating women about their rights and providing support for social and economic justice.',
+        title: 'Skill Development',
+        description: 'Vocational training in locally relevant trades to prevent distress migration to cities.',
+      },
+      {
+        title: 'Self-Help Groups',
+        description: 'Fostering financial independence through micro-savings and collective entrepreneurship among women.',
       },
     ],
   },

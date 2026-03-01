@@ -40,10 +40,10 @@ const Navbar = () => {
   }, [isHomePage, location.hash]);
 
   const programs = [
-    { title: "Natural Resource Management", href: "/nrm" },
-    { title: "Sustainable Livelihoods", href: "/livelihoods" },
-    { title: "Empowering Rural Youth", href: "/youth-empowerment" },
-    { title: "Empowering Rural Women", href: "/women-empowerment" },
+    { title: "Strengthening Livelihoods", href: "/livelihoods" },
+    { title: "Enhancing Ecosystems", href: "/ecosystems" },
+    { title: "Civic Amenities & Services", href: "/civic-services" },
+    { title: "Education & Health", href: "/education-health" },
   ];
 
   const handleNavClick = (href: string) => {
