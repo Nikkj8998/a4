@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Target, TrendingUp, Users, Briefcase, Sprout, ShoppingCart, ChevronRight, ArrowRight, ShieldCheck, Microscope, Globe, Heart } from 'lucide-react';
+import { Target, TrendingUp, Users, Briefcase, Sprout, ShoppingCart, ChevronRight, ShieldCheck, Microscope, Globe, Heart } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import ScrollReveal from '../components/ScrollReveal';
@@ -73,10 +73,10 @@ const StrengtheningLivelihoods = () => {
       
       <main className="pt-0">
         {/* Hero Section */}
-        <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-forest-dark">
-          <div className="absolute inset-0 opacity-40 scale-105">
+        <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-forest-dark">
+          <div className="absolute inset-0 opacity-40">
             <img 
-              src="/attached_assets/shared_image_(22)_1768279589814.jfif" 
+              src="/attached_assets/field_1772363434307.jfif" 
               alt="Strengthening Livelihoods" 
               className="w-full h-full object-cover"
             />
@@ -220,11 +220,6 @@ const StrengtheningLivelihoods = () => {
                           </div>
                         ))}
                       </div>
-                      
-                      <button className="flex items-center gap-3 text-primary font-bold group">
-                        Learn more about our methodology 
-                        <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
-                      </button>
                     </div>
                   </div>
                 </ScrollReveal>
