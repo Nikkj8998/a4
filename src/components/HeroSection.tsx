@@ -74,7 +74,7 @@ const HeroSection = () => {
           transition={{ duration: 1, delay: 0.7 }}
           className="font-display text-2xl md:text-4xl text-cream/90 italic mb-4"
         >
-          About Whom?
+          Along With Whom?
         </motion.p>
 
         <motion.p

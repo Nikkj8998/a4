@@ -1,8 +1,5 @@
 import { motion } from "framer-motion";
 import ScrollReveal from "./ScrollReveal";
-import ruralYouth from "@/assets/rural-youth.jpg";
-import womanFarmer from "@/assets/woman-farmer.jpg";
-import elderlyDignity from "@/assets/elderly-dignity.jpg";
 
 const pillars = [
   {
@@ -11,7 +8,7 @@ const pillars = [
     subtitle: "The Forgotten Constituency",
     description:
       "Representing 65% of the demography, youth aged 15-35 are a priority section we aim to empower and build into future pillars for society. By equipping them to be productive, we ensure they strengthen the social and political economy rather than becoming a burden on their families.",
-    image: ruralYouth,
+    image: "/rural-youth.png",
     stats: "65%",
     statsLabel: "Youth unemployment in rural India",
   },
@@ -21,7 +18,7 @@ const pillars = [
     subtitle: "The Invisible Backbone",
     description:
       'Women make up 49% of the population and contribute 63% of the productive workforce, yet they own only 1% of national assets. We focus on this priority section of society to address this skewed economic distribution and empower the active hands that "hold half the sky".',
-    image: womanFarmer,
+    image: "/women-farmers.png",
     stats: "80%",
     statsLabel: "Of farm work done by women",
   },
@@ -31,7 +28,7 @@ const pillars = [
     subtitle: "Dignity in Twilight",
     description:
       "As a priority section of society, the elderly shape the aspirations of the youth but often face lonely and neglected lives without adequate health care or nutrition. We focus on their psychological and physical well-being because their status directly impacts the morale of the coming generations who will one day enter this age group.",
-    image: elderlyDignity,
+    image: "/the-elderly.png",
     stats: "71%",
     statsLabel: "Elderly feel neglected in villages",
   },
