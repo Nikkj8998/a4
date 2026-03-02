@@ -13,11 +13,14 @@ const EnhancingEcosystems = () => {
   }, []);
 
   const sliderImages = [
-    "/attached_assets/shared_image_(31)_1768292922461.jfif",
-    "/attached_assets/shared_image_(36)_1768292922458.jfif",
-    "/attached_assets/shared_image_(41)_1768292922456.jfif",
-    "/src/assets/landscape-western-ghats.jpg",
-    "/attached_assets/shared_image_(22)_1768292922462.jfif"
+    "/attached_assets/f1.jfif",
+    "/attached_assets/f2.jfif",
+    "/attached_assets/f3.jfif",
+    "/attached_assets/f5.jfif",
+    "/attached_assets/f8.jfif",
+    "/attached_assets/f9.jfif",
+
+    "/attached_assets/f4.jfif"
   ];
 
   const initiatives = [
@@ -27,7 +30,7 @@ const EnhancingEcosystems = () => {
       icon: <Droplets className="w-10 h-10" />,
       content: "We implement community-led water conservation structures—such as check dams and rainwater harvesting systems—to ensure year-round water availability for drinking and irrigation.",
       features: ["Check Dams", "Rainwater Harvesting", "Year-round Availability", "Community-led Maintenance"],
-      image: "/attached_assets/shared_image_(31)_1768292922461.jfif",
+      image: "/attached_assets/f7.jfif",
       color: "bg-blue-50"
     },
     {
@@ -36,7 +39,7 @@ const EnhancingEcosystems = () => {
       icon: <Trees className="w-10 h-10" />,
       content: "To combat climate change and soil erosion, we lead large-scale forestation initiatives. We work with local communities to plant and nurture trees, restoring the green cover and ecological balance of the region.",
       features: ["Large-scale Planting", "Climate Combat", "Erosion Control", "Community Nurturing"],
-      image: "/attached_assets/shared_image_(36)_1768292922458.jfif",
+      image: "/attached_assets/f6.jfif",
       color: "bg-emerald-50"
     },
     {
@@ -45,7 +48,7 @@ const EnhancingEcosystems = () => {
       icon: <Leaf className="w-10 h-10" />,
       content: "We are guardians of the local ecosystem. Our programs actively document and protect indigenous flora and fauna, ensuring that the unique biodiversity of the region thrives for future generations.",
       features: ["Biodiversity Documentation", "Indigenous Protection", "Species Conservation", "Future-focused Preservation"],
-      image: "/attached_assets/shared_image_(41)_1768292922456.jfif",
+      image: "/attached_assets/f9.jfif",
       color: "bg-amber-50"
     },
     {
@@ -54,7 +57,7 @@ const EnhancingEcosystems = () => {
       icon: <Globe className="w-10 h-10" />,
       content: "Conservation works best when the community leads. We engage locals in documentation projects and promote agro-tourism. Special focus is given to preserving native species and protecting sacred groves and mangroves as community heritage sites.",
       features: ["Agro-Tourism", "Community Documentation", "Sacred Grove Protection", "Heritage Preservation"],
-      image: "/attached_assets/shared_image_(22)_1768292922462.jfif",
+      image: "/attached_assets/f10.jfif",
       color: "bg-purple-50"
     }
   ];
@@ -62,14 +65,14 @@ const EnhancingEcosystems = () => {
   return (
     <div className="min-h-screen bg-cream text-foreground font-body">
       <Navbar />
-      
+
       <main className="pt-0">
         {/* Hero Section */}
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-forest-dark">
           <div className="absolute inset-0 opacity-40">
-            <img 
-              src="/src/assets/landscape-western-ghats.jpg" 
-              alt="Enhancing Ecosystems" 
+            <img
+              src="/src/assets/EnhancingEcosystems.jfif"
+              alt="Enhancing Ecosystems"
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-forest-dark/20 to-forest-dark/80"></div>
@@ -111,7 +114,7 @@ const EnhancingEcosystems = () => {
                   <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
                     Our approach to ecosystem enhancement is rooted in community participation and scientific preservation. We work to restore the delicate balance between human activity and the natural environment.
                   </p>
-                  
+
                   <div className="space-y-6">
                     {[
                       { icon: <ShieldCheck className="text-emerald-600" />, text: "Protecting sacred groves and native species" },
@@ -141,9 +144,9 @@ const EnhancingEcosystems = () => {
                         <div className="w-3 h-3 rounded-full bg-emerald-400"></div>
                       </div>
                     </div>
-                    <Carousel 
+                    <Carousel
                       opts={{ align: "start", loop: true }}
-                      plugins={[ Autoplay({ delay: 3500 }) ]}
+                      plugins={[Autoplay({ delay: 3500 })]}
                       className="w-full"
                     >
                       <CarouselContent>
@@ -192,7 +195,7 @@ const EnhancingEcosystems = () => {
                         </div>
                       </div>
                     </div>
-                    
+
                     <div className={`lg:col-span-5 space-y-8 ${i % 2 !== 0 ? 'lg:order-1' : ''}`}>
                       <div className={`w-20 h-20 ${initiative.color} rounded-2xl flex items-center justify-center text-primary shadow-sm border border-primary/10`}>
                         {initiative.icon}
@@ -203,7 +206,7 @@ const EnhancingEcosystems = () => {
                           {initiative.content}
                         </p>
                       </div>
-                      
+
                       <div className="grid grid-cols-2 gap-4">
                         {initiative.features.map((feature, fIdx) => (
                           <div key={fIdx} className="flex items-center gap-2 group/feat">
@@ -234,7 +237,7 @@ const EnhancingEcosystems = () => {
                   Our commitment to the environment ensures that the unique biodiversity and natural resources of the region are preserved for generations to come.
                 </p>
               </ScrollReveal>
-              
+
               <ScrollReveal delay={0.3}>
                 <div className="flex flex-wrap justify-center gap-8">
                   <div className="text-center">
