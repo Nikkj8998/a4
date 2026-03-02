@@ -40,24 +40,66 @@ const Navbar = () => {
   }, [isHomePage, location.hash]);
 
   const programs = [
-    { title: "Strengthening Livelihoods", href: "/strengthening-livelihoods" },
-    { title: "Enhancing Ecosystems", href: "/enhancing-ecosystems" },
-    { title: "Civic Amenities & Services", href: "/civic-services" },
-    { title: "Education & Health", href: "/education-health" },
+    {
+      title: "Strengthening Livelihoods",
+      href: "/strengthening-livelihoods",
+      initiatives: [
+        { title: "Sustainable Agriculture", hash: "#sustainable-agriculture-equipment-banks" },
+        { title: "Livestock Management", hash: "#livestock-management-market-linkages" },
+        { title: "Micro-Entrepreneurship", hash: "#micro-entrepreneurship-financial-support" },
+        { title: "Community Cooperatives", hash: "#community-cooperatives-fpos-shgs" },
+      ]
+    },
+    {
+      title: "Enhancing Ecosystems",
+      href: "/enhancing-ecosystems",
+      initiatives: [
+        { title: "Water Security", hash: "#water-security-conservation" },
+        { title: "Forestation Drives", hash: "#forestation-drives" },
+        { title: "Flora & Fauna", hash: "#preservation-of-local-flora-fauna" },
+        { title: "Eco-Tourism", hash: "#eco-tourism-community-stewardship" },
+      ]
+    },
+    {
+      title: "Civic Amenities & Services",
+      href: "/civic-services",
+      initiatives: [
+        { title: "Safe Drinking Water", hash: "#safe-drinking-water-access" },
+        { title: "Rural Connectivity", hash: "#rural-connectivity-transport" },
+        { title: "Sanitation & Hygiene", hash: "#sanitation-public-hygiene" },
+        { title: "Renewable Energy", hash: "#renewable-energy-solutions" },
+      ]
+    },
+    {
+      title: "Education & Health",
+      href: "/education-health",
+      initiatives: [
+        { title: "Skill Development", hash: "#skill-development-digital-literacy" },
+        { title: "Holistic Health", hash: "#holistic-health-social-security" },
+      ]
+    },
   ];
 
-  const handleNavClick = (href: string) => {
-    if (href.startsWith("#")) {
+  const handleNavClick = (href: string, hash?: string) => {
+    const fullHref = hash ? `${href}${hash}` : href;
+    if (fullHref.startsWith("#")) {
       if (isHomePage) {
-        const element = document.querySelector(href);
+        const element = document.querySelector(fullHref);
         if (element) {
           element.scrollIntoView({ behavior: "smooth" });
         }
       } else {
-        navigate("/" + href);
+        navigate("/" + fullHref);
       }
     } else {
-      navigate(href);
+      if (location.pathname === href && hash) {
+        const element = document.querySelector(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      } else {
+        navigate(fullHref);
+      }
     }
     setIsMobileMenuOpen(false);
   };
@@ -110,20 +152,32 @@ const Navbar = () => {
                     Our Programs
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <ul className="grid w-[200px] gap-3 p-4 bg-background border border-border rounded-md shadow-xl">
+                    <div className="grid w-[600px] grid-cols-2 gap-3 p-6 bg-background border border-border rounded-md shadow-xl">
                       {programs.map((program) => (
-                        <li key={program.title}>
-                          <NavigationMenuLink asChild>
-                            <button
-                              onClick={() => handleNavClick(program.href)}
-                              className="block w-full select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:!text-black text-sm font-medium text-black text-left"
-                            >
-                              {program.title}
-                            </button>
-                          </NavigationMenuLink>
-                        </li>
+                        <div key={program.title} className="space-y-2">
+                          <button
+                            onClick={() => handleNavClick(program.href)}
+                            className="text-sm font-bold text-primary hover:opacity-70 transition-opacity text-left w-full"
+                          >
+                            {program.title}
+                          </button>
+                          <ul className="space-y-1">
+                            {program.initiatives.map((initiative) => (
+                              <li key={initiative.title}>
+                                <NavigationMenuLink asChild>
+                                  <button
+                                    onClick={() => handleNavClick(program.href, initiative.hash)}
+                                    className="block w-full select-none rounded-md p-2 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground text-xs font-medium text-muted-foreground text-left"
+                                  >
+                                    {initiative.title}
+                                  </button>
+                                </NavigationMenuLink>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
                       ))}
-                    </ul>
+                    </div>
                   </NavigationMenuContent>
                 </NavigationMenuItem>
               </NavigationMenuList>
@@ -184,18 +238,31 @@ const Navbar = () => {
                 About Us
               </button>
 
-              <div className="flex flex-col items-center gap-4">
+              <div className="flex flex-col items-center gap-4 w-full px-6">
                 <span className="font-display text-2xl text-golden">
                   Our Programs
                 </span>
                 {programs.map((program) => (
-                  <button
-                    key={program.title}
-                    onClick={() => handleNavClick(program.href)}
-                    className="font-body text-lg text-cream/80 hover:text-golden transition-colors"
-                  >
-                    {program.title}
-                  </button>
+                  <div key={program.title} className="flex flex-col items-center gap-2 w-full">
+                    <button
+                      onClick={() => handleNavClick(program.href)}
+                      className="font-display text-xl text-cream hover:text-golden transition-colors"
+                    >
+                      {program.title}
+                    </button>
+                    <div className="grid grid-cols-2 gap-x-4 gap-y-2 w-full">
+                      {program.initiatives.map((initiative) => (
+                        <button
+                          key={initiative.title}
+                          onClick={() => handleNavClick(program.href, initiative.hash)}
+                          className="font-body text-sm text-cream/60 hover:text-golden transition-colors text-center"
+                        >
+                          {initiative.title}
+                        </button>
+                      ))}
+                    </div>
+                    <div className="w-12 h-px bg-golden/20 my-2" />
+                  </div>
                 ))}
               </div>
 
