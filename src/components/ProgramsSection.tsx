@@ -8,6 +8,7 @@ import { Sprout, Sun, Leaf, Scale, Heart, ChevronRight } from 'lucide-react';
 const programs = [
   {
     category: 'Strengthening Livelihoods',
+    route: '/strengthening-livelihoods',
     icon: Sprout,
     items: [
       {
@@ -26,6 +27,7 @@ const programs = [
   },
   {
     category: 'Enhancing Ecosystems/ Environment',
+    route: '/enhancing-ecosystems',
     icon: Leaf,
     items: [
       {
@@ -44,6 +46,7 @@ const programs = [
   },
   {
     category: 'Improving Access to Civic Amenities & Services',
+    route: '/civic-services',
     icon: Scale,
     items: [
       {
@@ -62,6 +65,7 @@ const programs = [
   },
   {
     category: 'Improving Quality of Life through Education and Health',
+    route: '/education-health',
     icon: Heart,
     items: [
       {
@@ -116,12 +120,18 @@ const ProgramsSection = () => {
         <div className="grid lg:grid-cols-2 gap-12 mb-20">
           {programs.map((program, programIndex) => (
             <ScrollReveal key={program.category} delay={programIndex * 0.1}>
-              <div className="bg-background rounded-xl p-8 lg:p-10 shadow-sm border border-border/30 h-full">
+              <div 
+                className="bg-background rounded-xl p-8 lg:p-10 shadow-sm border border-border/30 h-full cursor-pointer hover:shadow-md transition-shadow group/card"
+                onClick={() => navigate(program.route)}
+              >
                 <div className="flex items-center gap-4 mb-8">
-                  <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center">
+                  <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center group-hover/card:bg-primary/20 transition-colors">
                     <program.icon className="w-7 h-7 text-primary" />
                   </div>
-                  <h3 className="font-display text-2xl text-foreground">{program.category}</h3>
+                  <h3 className="font-display text-2xl text-foreground group-hover/card:text-primary transition-colors flex items-center gap-2">
+                    {program.category}
+                    <ChevronRight className="w-5 h-5 opacity-0 group-hover/card:opacity-100 transition-all -translate-x-2 group-hover/card:translate-x-0" />
+                  </h3>
                 </div>
 
                 <div className="space-y-6">
@@ -145,22 +155,28 @@ const ProgramsSection = () => {
 
         {/* Conservation Section with Image */}
         <ScrollReveal>
-          <div className="grid lg:grid-cols-2 gap-0 rounded-xl overflow-hidden shadow-xl">
+          <div 
+            className="grid lg:grid-cols-2 gap-0 rounded-xl overflow-hidden shadow-xl cursor-pointer group/conservation hover:shadow-2xl transition-shadow"
+            onClick={() => navigate('/enhancing-ecosystems')}
+          >
             {/* Image */}
             <div className="relative h-80 lg:h-auto">
               <img 
                 src={landscapeImage} 
                 alt="Western Ghats Landscape"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover group-hover/conservation:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-r from-primary/60 to-transparent lg:bg-gradient-to-t" />
             </div>
 
             {/* Content */}
-            <div className="bg-primary p-8 lg:p-12 flex flex-col justify-center">
+            <div className="bg-primary p-8 lg:p-12 flex flex-col justify-center relative overflow-hidden">
+              <div className="absolute top-8 right-8 text-primary-foreground/20 group-hover/conservation:text-golden/40 transition-colors">
+                <ChevronRight className="w-12 h-12" />
+              </div>
               <div className="flex items-center gap-4 mb-6">
                 <Leaf className="w-8 h-8 text-golden" />
-                <h3 className="font-display text-2xl lg:text-3xl text-primary-foreground">
+                <h3 className="font-display text-2xl lg:text-3xl text-primary-foreground group-hover/conservation:text-golden transition-colors">
                   {conservation.title}
                 </h3>
               </div>
