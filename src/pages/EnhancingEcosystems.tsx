@@ -182,7 +182,7 @@ const EnhancingEcosystems = () => {
             <div className="space-y-32">
               {initiatives.map((initiative, i) => (
                 <ScrollReveal key={i} direction={i % 2 === 0 ? "left" : "right"}>
-                  <div className={`grid lg:grid-cols-12 gap-12 items-center ${i % 2 !== 0 ? 'lg:flex-row-reverse' : ''}`}>
+                  <div id={initiative.title.toLowerCase().replace(/[^\w\s-]/g, '').replace(/\s+/g, '-')} className={`grid lg:grid-cols-12 gap-12 items-center ${i % 2 !== 0 ? 'lg:flex-row-reverse' : ''}`}>
                     <div className={`lg:col-span-7 relative group ${i % 2 !== 0 ? 'lg:order-2' : ''}`}>
                       <div className="absolute -inset-4 bg-primary/5 rounded-[2rem] scale-95 group-hover:scale-100 transition-transform duration-500"></div>
                       <div className="relative aspect-[16/9] rounded-2xl overflow-hidden shadow-2xl">

@@ -12,16 +12,16 @@ const programs = [
     icon: Sprout,
     items: [
       {
-        title: 'Agri-Equipment Bank',
+        title: 'Sustainable Agriculture & Equipment Banks',
         description: 'Providing affordable access to modern farming tools to reduce labor and increase productivity for small-scale farmers.',
       },
       {
-        title: 'Goat Farming',
+        title: 'Livestock Management & Market Linkages',
         description: 'Transforming traditional livestock rearing into a scientific and profitable enterprise for landless families.',
       },
       {
-        title: 'Market Linkages',
-        description: 'Connecting rural producers directly with urban markets to ensure fair prices and eliminate middlemen.',
+        title: 'Micro-Entrepreneurship & Financial Support',
+        description: 'Through targeted training and microfinance support, we empower individuals to launch and sustain their own small businesses.',
       },
     ],
   },
@@ -31,16 +31,16 @@ const programs = [
     icon: Leaf,
     items: [
       {
-        title: 'Water Conservation',
-        description: 'Implementing watershed management and traditional water harvesting techniques to ensure year-round water security.',
+        title: 'Water Security & Conservation',
+        description: 'Implementing community-led water conservation structures—such as check dams and rainwater harvesting systems.',
       },
       {
-        title: 'Soil Health',
-        description: 'Promoting organic practices and soil testing to restore fertility and reduce dependence on chemical fertilizers.',
+        title: 'Forestation Drives',
+        description: 'Promoting large-scale forestation initiatives to restore green cover and ecological balance.',
       },
       {
-        title: 'Biodiversity',
-        description: 'Protecting local flora and fauna in the Western Ghats through community-led conservation efforts.',
+        title: 'Preservation of Local Flora & Fauna',
+        description: 'Protecting indigenous flora and fauna, ensuring that the unique biodiversity of the region thrives.',
       },
     ],
   },
@@ -50,16 +50,16 @@ const programs = [
     icon: Scale,
     items: [
       {
-        title: 'Solar Power',
-        description: 'Providing solar-powered street and home lighting in remote villages to improve safety and quality of life.',
+        title: 'Safe Drinking Water Access',
+        description: 'Providing safe, potable drinking water directly to households, reducing waterborne diseases.',
       },
       {
-        title: 'Rural Transport',
-        description: 'Targeted transport solutions providing mobility for school children, patients, and senior citizens.',
+        title: 'Rural Connectivity & Transport',
+        description: 'Improving transportation networks, ensuring that markets, hospitals, and schools are within reach.',
       },
       {
-        title: 'Digital Literacy',
-        description: 'Bridging the digital divide by providing computer education and internet access in remote villages.',
+        title: 'Renewable Energy Solutions',
+        description: 'Promoting biogas plants, fuel-efficient cookstoves, and solar-powered lights and water pumps.',
       },
     ],
   },
@@ -69,15 +69,15 @@ const programs = [
     icon: Heart,
     items: [
       {
-        title: 'Maternal & Child Health',
-        description: 'Awareness programs focusing on maternal health and balanced nutrition for rural families.',
+        title: 'Skill Development & Digital Literacy',
+        description: 'Equipping youth and adults with essential life skills, vocational trade training, and digital literacy.',
       },
       {
-        title: 'Skill Development',
-        description: 'Vocational training in locally relevant trades to prevent distress migration to cities.',
+        title: 'Holistic Health & Social Security',
+        description: 'Comprehensive health mission: from nutrition awareness and preventive care camps to mental health support.',
       },
       {
-        title: 'Self-Help Groups',
+        title: 'Community Cooperatives (FPOs & SHGs)',
         description: 'Fostering financial independence through micro-savings and collective entrepreneurship among women.',
       },
     ],
@@ -139,10 +139,15 @@ const ProgramsSection = () => {
                     <motion.div 
                       key={item.title}
                       whileHover={{ x: 8 }}
-                      className={`border-l-2 border-golden/50 pl-6 py-2`}
+                      className={`border-l-2 border-golden/50 pl-6 py-2 cursor-pointer hover:bg-primary/5 transition-colors rounded-r-lg`}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        const id = item.title.toLowerCase().replace(/[^\w\s-]/g, '').replace(/\s+/g, '-');
+                        navigate(`${program.route}#${id}`);
+                      }}
                     >
                       <div className="flex items-center gap-2 group">
-                        <h4 className="font-display text-lg text-foreground mb-2">{item.title}</h4>
+                        <h4 className="font-display text-lg text-foreground mb-2 group-hover:text-primary transition-colors">{item.title}</h4>
                       </div>
                       <p className="font-body text-muted-foreground text-sm leading-relaxed">{item.description}</p>
                     </motion.div>
