@@ -41,7 +41,7 @@ const Navbar = () => {
 
   const programs = [
     { title: "Strengthening Livelihoods", href: "/strengthening-livelihoods" },
-    { title: "Enhancing Ecosystems", href: "/ecosystems" },
+    { title: "Enhancing Ecosystems", href: "/enhancing-ecosystems" },
     { title: "Civic Amenities & Services", href: "/civic-services" },
     { title: "Education & Health", href: "/education-health" },
   ];
