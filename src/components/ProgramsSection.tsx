@@ -23,6 +23,10 @@ const programs = [
         title: 'Micro-Entrepreneurship & Financial Support',
         description: 'Through targeted training and microfinance support, we empower individuals to launch and sustain their own small businesses.',
       },
+      {
+        title: 'Community Cooperatives (FPOs & SHGs)',
+        description: 'By organizing farmers and women into cooperatives, we increase their bargaining power and create a resilient community support system.',
+      },
     ],
   },
   {
@@ -42,6 +46,10 @@ const programs = [
         title: 'Preservation of Local Flora & Fauna',
         description: 'Protecting indigenous flora and fauna, ensuring that the unique biodiversity of the region thrives.',
       },
+      {
+        title: 'Eco-Tourism & Community Stewardship',
+        description: 'Engaging locals in documentation projects and promoting agro-tourism to protect sacred groves and mangroves.',
+      },
     ],
   },
   {
@@ -56,6 +64,10 @@ const programs = [
       {
         title: 'Rural Connectivity & Transport',
         description: 'Improving transportation networks, ensuring that markets, hospitals, and schools are within reach.',
+      },
+      {
+        title: 'Sanitation & Public Hygiene',
+        description: 'Promoting dignity and health through toilet construction and hygiene awareness campaigns.',
       },
       {
         title: 'Renewable Energy Solutions',
@@ -75,10 +87,6 @@ const programs = [
       {
         title: 'Holistic Health & Social Security',
         description: 'Comprehensive health mission: from nutrition awareness and preventive care camps to mental health support.',
-      },
-      {
-        title: 'Community Cooperatives (FPOs & SHGs)',
-        description: 'Fostering financial independence through micro-savings and collective entrepreneurship among women.',
       },
     ],
   },
@@ -142,7 +150,11 @@ const ProgramsSection = () => {
                       className={`border-l-2 border-golden/50 pl-6 py-2 cursor-pointer hover:bg-primary/5 transition-colors rounded-r-lg`}
                       onClick={(e) => {
                         e.stopPropagation();
-                        const id = item.title.toLowerCase().replace(/[^\w\s-]/g, '').replace(/\s+/g, '-');
+                        const id = item.title.toLowerCase()
+                          .replace(/&/g, '')
+                          .replace(/[^\w\s-]/g, '')
+                          .trim()
+                          .replace(/\s+/g, '-');
                         navigate(`${program.route}#${id}`);
                       }}
                     >
