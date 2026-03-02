@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import { ChevronDown } from 'lucide-react';
-import heroImage from '@/assets/hero-farmer.jpg';
+import heroImage from '@/assets/hero-farmer.png';
 
 const HeroSection = () => {
   const ref = useRef(null);
@@ -21,20 +21,20 @@ const HeroSection = () => {
   return (
     <section ref={ref} className="relative h-screen overflow-hidden">
       {/* Background Image with Parallax */}
-      <motion.div 
+      <motion.div
         style={{ y, scale }}
         className="absolute inset-0"
       >
-        <img 
-          src={heroImage} 
-          alt="Rural India - Woman farmer in fields" 
+        <img
+          src={heroImage}
+          alt="Rural India - Woman farmer in fields"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-forest-dark/60 via-forest-dark/40 to-forest-dark/80" />
       </motion.div>
 
       {/* Content */}
-      <motion.div 
+      <motion.div
         style={{ opacity }}
         className="relative z-10 h-full flex flex-col items-center justify-center px-6 text-center"
       >
@@ -60,9 +60,9 @@ const HeroSection = () => {
           className="mb-6"
         >
           <div className="w-32 h-32 md:w-48 md:h-48 bg-white rounded-full flex items-center justify-center p-4 shadow-xl mx-auto">
-            <img 
-              src="/logo.png" 
-              alt="Astha Logo" 
+            <img
+              src="/logo.png"
+              alt="Astha Logo"
               className="w-full h-full object-contain"
             />
           </div>

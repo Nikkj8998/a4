@@ -14,10 +14,8 @@ const CivicAmenities = () => {
 
   const sliderImages = [
     "/src/assets/solar-hero.png",
-    "/src/assets/eriksha-hero.png",
-    "/src/assets/agri-bank-1.png",
-    "/attached_assets/shared_image_(30)_1768280952192.jfif",
-    "/attached_assets/shared_image_(39)_1768281748403.jpg"
+    "/attached_assets/IMG-20240930-WA0030_1768212571350.jpg",
+    "/src/assets/agri-bank-1.png"
   ];
 
   const initiatives = [
@@ -27,7 +25,7 @@ const CivicAmenities = () => {
       icon: <Droplets className="w-10 h-10" />,
       content: "We are committed to the right to clean water. Our infrastructure projects focus on delivering safe, potable drinking water directly to households, reducing waterborne diseases and the burden of fetching water.",
       features: ["Potable Water Access", "Infrastructure Projects", "Disease Reduction", "Household Delivery"],
-      image: "/attached_assets/shared_image_(30)_1768280952192.jfif",
+      image: "/attached_assets/shared_image_(15)_1768208685604.jfif",
       color: "bg-blue-50"
     },
     {
@@ -36,7 +34,7 @@ const CivicAmenities = () => {
       icon: <Truck className="w-10 h-10" />,
       content: "Bridging the gap between remote villages and essential services. We work to improve transportation networks, ensuring that markets, hospitals, and schools are within reach for everyone.",
       features: ["Improved Networks", "Access to Markets", "Healthcare Linkages", "School Connectivity"],
-      image: "/src/assets/eriksha-hero.png",
+      image: "/attached_assets/IMG-20240930-WA0030_1768212571350.jpg",
       color: "bg-slate-50"
     },
     {
@@ -45,7 +43,7 @@ const CivicAmenities = () => {
       icon: <Trash2 className="w-10 h-10" />,
       content: "We promote dignity and health through improved sanitation. Our initiatives include constructing toilets and running hygiene awareness campaigns to create open-defecation-free communities.",
       features: ["Toilet Construction", "Hygiene Campaigns", "ODF Communities", "Public Health focus"],
-      image: "/attached_assets/shared_image_(39)_1768281748403.jpg",
+      image: "/attached_assets/shared_image_(23)_1768279646697.jfif",
       color: "bg-emerald-50"
     },
     {
@@ -62,14 +60,14 @@ const CivicAmenities = () => {
   return (
     <div className="min-h-screen bg-cream text-foreground font-body">
       <Navbar />
-      
+
       <main className="pt-0">
         {/* Hero Section */}
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-forest-dark">
           <div className="absolute inset-0 opacity-40">
-            <img 
-              src="/src/assets/solar-hero.png" 
-              alt="Civic Amenities & Services" 
+            <img
+              src="/src/assets/solar-hero.png"
+              alt="Civic Amenities & Services"
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-forest-dark/20 to-forest-dark/80"></div>
@@ -111,7 +109,7 @@ const CivicAmenities = () => {
                   <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
                     Access to basic civic amenities is a fundamental right. We focus on building resilient infrastructure that brings essential services to the doorstep of every rural household.
                   </p>
-                  
+
                   <div className="space-y-6">
                     {[
                       { icon: <Construction className="text-amber-600" />, text: "Last-mile infrastructure development" },
@@ -141,9 +139,9 @@ const CivicAmenities = () => {
                         <div className="w-3 h-3 rounded-full bg-emerald-400"></div>
                       </div>
                     </div>
-                    <Carousel 
+                    <Carousel
                       opts={{ align: "start", loop: true }}
-                      plugins={[ Autoplay({ delay: 3500 }) ]}
+                      plugins={[Autoplay({ delay: 3500 })]}
                       className="w-full"
                     >
                       <CarouselContent>
@@ -192,7 +190,7 @@ const CivicAmenities = () => {
                         </div>
                       </div>
                     </div>
-                    
+
                     <div className={`lg:col-span-5 space-y-8 ${i % 2 !== 0 ? 'lg:order-1' : ''}`}>
                       <div className={`w-20 h-20 ${initiative.color} rounded-2xl flex items-center justify-center text-primary shadow-sm border border-primary/10`}>
                         {initiative.icon}
@@ -203,7 +201,7 @@ const CivicAmenities = () => {
                           {initiative.content}
                         </p>
                       </div>
-                      
+
                       <div className="grid grid-cols-2 gap-4">
                         {initiative.features.map((feature, fIdx) => (
                           <div key={fIdx} className="flex items-center gap-2 group/feat">
@@ -234,7 +232,7 @@ const CivicAmenities = () => {
                   By providing clean water, renewable energy, and better transport, we are not just building infrastructure; we are building hope and a better future for rural India.
                 </p>
               </ScrollReveal>
-              
+
               <ScrollReveal delay={0.3}>
                 <div className="flex flex-wrap justify-center gap-8">
                   <div className="text-center">

@@ -13,19 +13,15 @@ const StrengtheningLivelihoods = () => {
   }, []);
 
   const sliderImages = [
-    "/attached_assets/shared_image_(20)_1768279435851.jfif",
-    "/attached_assets/shared_image_(22)_1768279589814.jfif",
-    "/attached_assets/shared_image_(24)_1768279693356.jfif",
-    "/attached_assets/shared_image_(13)_1768208685605.jfif",
-    "/attached_assets/shared_image_(14)_1768208685605.jfif",
-    "/attached_assets/shared_image_(15)_1768208685604.jfif",
-    "/attached_assets/shared_image_(17)_1768292922463.jfif",
-    "/attached_assets/shared_image_(18)_1768284257276.jfif",
-    "/attached_assets/shared_image_(21)_1768284257275.jfif",
-    "/attached_assets/shared_image_(23)_1768279646697.jfif",
-    "/attached_assets/shared_image_(30)_1768280952192.jfif",
-    "/attached_assets/shared_image_(39)_1768281748403.jpg",
-    "/src/assets/woman-farmer.jpg"
+    "/attached_assets/IMG-20241017-WA0027_1768212799107.jpg",
+    "/attached_assets/IMG20241029102602_1768212799108.jpg",
+    "/attached_assets/shared_image_(33)_1768284257273.jfif",
+    "/attached_assets/shared_image_(28)_1768284257275.jfif"
+
+
+
+
+
   ];
 
   const initiatives = [
@@ -35,7 +31,7 @@ const StrengtheningLivelihoods = () => {
       icon: <Sprout className="w-10 h-10" />,
       content: "We introduce organic practices and modern technology to traditional farming. Our 'Equipment Banks' provide access to drudgery-reducing tools, while training programs ensure farmers have the skills and high-quality seeds needed for sustainable, chemical-free harvests.",
       features: ["Organic Transition Support", "Modern Tool Access", "Seed Quality Assurance", "Skill Workshops"],
-      image: "/attached_assets/shared_image_(23)_1768279646697.jfif",
+      image: "/attached_assets/IMG-20241111-WA0004_1768212799108.jpg",
       color: "bg-emerald-50"
     },
     {
@@ -62,7 +58,7 @@ const StrengtheningLivelihoods = () => {
       icon: <Users className="w-10 h-10" />,
       content: "By organizing farmers and women into Farmer Producer Organizations (FPOs) and Self-Help Groups (SHGs), we increase their bargaining power, reduce costs, and create a resilient community support system.",
       features: ["FPO Formation", "SHG Empowerment", "Collective Bargaining", "Community Resilience"],
-      image: "/attached_assets/shared_image_(21)_1768284257275.jfif",
+      image: "/attached_assets/shared_image_(13)_1768208685605.jfif",
       color: "bg-purple-50"
     }
   ];
@@ -70,14 +66,14 @@ const StrengtheningLivelihoods = () => {
   return (
     <div className="min-h-screen bg-cream text-foreground font-body">
       <Navbar />
-      
+
       <main className="pt-0">
         {/* Hero Section */}
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-forest-dark">
           <div className="absolute inset-0 opacity-40">
-            <img 
-              src="/attached_assets/field_1772363434307.jfif" 
-              alt="Strengthening Livelihoods" 
+            <img
+              src="/attached_assets/field_1772363434307.jfif"
+              alt="Strengthening Livelihoods"
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-forest-dark/20 to-forest-dark/80"></div>
@@ -119,7 +115,7 @@ const StrengtheningLivelihoods = () => {
                   <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
                     ASTHA's strategy is built on the belief that rural development is most effective when it is community-led and economically viable. We focus on transitioning from traditional dependency to modern self-reliance.
                   </p>
-                  
+
                   <div className="space-y-6">
                     {[
                       { icon: <ShieldCheck className="text-emerald-600" />, text: "Protecting livelihoods against market volatility" },
@@ -149,9 +145,9 @@ const StrengtheningLivelihoods = () => {
                         <div className="w-3 h-3 rounded-full bg-emerald-400"></div>
                       </div>
                     </div>
-                    <Carousel 
+                    <Carousel
                       opts={{ align: "start", loop: true }}
-                      plugins={[ Autoplay({ delay: 3500 }) ]}
+                      plugins={[Autoplay({ delay: 3500 })]}
                       className="w-full"
                     >
                       <CarouselContent>
@@ -200,7 +196,7 @@ const StrengtheningLivelihoods = () => {
                         </div>
                       </div>
                     </div>
-                    
+
                     <div className={`lg:col-span-5 space-y-8 ${i % 2 !== 0 ? 'lg:order-1' : ''}`}>
                       <div className={`w-20 h-20 ${initiative.color} rounded-2xl flex items-center justify-center text-primary shadow-sm border border-primary/10`}>
                         {initiative.icon}
@@ -211,7 +207,7 @@ const StrengtheningLivelihoods = () => {
                           {initiative.content}
                         </p>
                       </div>
-                      
+
                       <div className="grid grid-cols-2 gap-4">
                         {initiative.features.map((feature, fIdx) => (
                           <div key={fIdx} className="flex items-center gap-2 group/feat">
@@ -242,7 +238,7 @@ const StrengtheningLivelihoods = () => {
                   Our commitment goes beyond temporary relief. We are building systems that ensure every rural family has the opportunity to prosper for generations.
                 </p>
               </ScrollReveal>
-              
+
               <ScrollReveal delay={0.3}>
                 <div className="flex flex-wrap justify-center gap-8">
                   <div className="text-center">

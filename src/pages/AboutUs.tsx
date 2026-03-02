@@ -16,7 +16,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 
-import aboutHero from "@/assets/about-hero-bg.jpg";
+import aboutHero from "@/assets/about-hero-bg.png";
 
 const AboutUs = () => {
   useEffect(() => {
@@ -106,9 +106,9 @@ const AboutUs = () => {
         {/* Hero Section */}
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-forest-dark">
           <div className="absolute inset-0 opacity-40">
-            <img 
-              src={aboutHero} 
-              alt="About Us" 
+            <img
+              src={aboutHero}
+              alt="About Us"
               className="w-full h-full object-cover"
             />
           </div>
@@ -206,9 +206,9 @@ const AboutUs = () => {
                   <div className="bg-white p-6 rounded-2xl h-full shadow-sm border border-border/30 hover:border-golden/50 transition-all group text-center flex flex-col">
                     <div className="w-32 h-32 bg-golden/10 rounded-2xl mx-auto mb-6 flex items-center justify-center text-golden group-hover:bg-golden group-hover:text-white transition-colors overflow-hidden shadow-inner shrink-0">
                       {'image' in member && member.image ? (
-                        <img 
-                          src={(member as any).image} 
-                          alt={member.name} 
+                        <img
+                          src={(member as any).image}
+                          alt={member.name}
                           className="w-full h-full object-cover"
                         />
                       ) : (
@@ -260,9 +260,9 @@ const AboutUs = () => {
                     <div className="relative mb-6">
                       <div className="w-24 h-24 rounded-full border-2 border-golden/20 p-1 overflow-hidden bg-cream">
                         {member.image ? (
-                          <img 
-                            src={member.image} 
-                            alt={member.name} 
+                          <img
+                            src={member.image}
+                            alt={member.name}
                             className="w-full h-full object-cover rounded-full group-hover:scale-110 transition-transform duration-500"
                           />
                         ) : (
@@ -280,7 +280,7 @@ const AboutUs = () => {
                     <p className="font-body text-[10px] font-bold text-golden uppercase tracking-widest mb-4">
                       {member.role}
                     </p>
-                    
+
                     <p className="font-body text-sm text-muted-foreground leading-relaxed mb-8 flex-grow">
                       {member.bio}
                     </p>
@@ -291,9 +291,9 @@ const AboutUs = () => {
                         {member.experience && member.experience !== "Profile Needed" ? `${member.experience.split('+')[0]}+ years of expertise` : ""}
                       </span>
                       {member.linkedin && (
-                        <a 
-                          href={member.linkedin} 
-                          target="_blank" 
+                        <a
+                          href={member.linkedin}
+                          target="_blank"
                           rel="noopener noreferrer"
                           className="bg-primary/5 p-2 rounded-lg text-primary hover:bg-primary hover:text-white transition-all shadow-sm"
                         >
