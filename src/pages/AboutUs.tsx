@@ -34,7 +34,7 @@ const AboutUs = () => {
       name: "Mr Raosaheb Badhe",
       role: "Chief Operating Officer (COO)",
       image: "/images/raosaheb-badhe.png",
-      bio: "Raosaheb Badhe serves as the Chief Operating Officer, overseeing the foundation's ground-level operations and project implementation across rural Maharashtra. With extensive field experience, he bridges the gap between strategic planning and community impact, ensuring that development initiatives are effectively delivered to the Western Ghats region.",
+      bio: "",
     },
     {
       name: "Sanjay Mahadeo Bobade",
@@ -46,7 +46,7 @@ const AboutUs = () => {
       name: "Pramod Dattatraya Kale",
       role: "Trustee",
       icon: <Users className="w-8 h-8" />,
-      bio: "Pramod Dattatraya Kale serves as a Trustee, bringing his extensive experience and dedication to the foundation's mission. He plays a vital role in guiding the strategic direction and ensuring the organization remains committed to its core values of social transformation and human advancement in rural communities.",
+      bio: "",
     },
     {
       name: "Sudam Dagadu Zende",
@@ -81,13 +81,13 @@ const AboutUs = () => {
       name: "Dr Anagha Joshi",
       role: "Director and Senior Consultant",
       experience: "25+ Y",
-      bio: "Dr. Anagha Joshi is a highly respected Director and Senior Consultant with over 25 years of specialized experience. Her expertise lies in strategic advisory and implementing complex development projects, providing invaluable guidance to ensure the foundation's initiatives are both sustainable and impactful for the communities they serve.",
+      bio: "",
       icon: <Briefcase className="w-8 h-8" />,
     },
     {
       name: "Meena Patel",
       role: "Senior Advisor",
-      bio: "Meena Patel brings a wealth of knowledge and a professional perspective to the advisory board. Her contributions are instrumental in shaping the foundation's outreach strategies and strengthening its collaborative frameworks, ensuring that every project is aligned with the highest standards of social advancement.",
+      bio: "",
       icon: <UserCircle className="w-8 h-8" />,
     },
     {
