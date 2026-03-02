@@ -40,7 +40,7 @@ This is a React + TypeScript web application built with Vite, using Tailwind CSS
 - Vite dev server configured to use host `0.0.0.0` and port `5000`
 - All hosts allowed for Replit proxy compatibility
 
-## Deployment
-Configured for autoscale deployment with:
-- Build command: `npm run build`
-- Run command: `npm run preview`
+## Recent Updates
+- Created `EducationHealth.tsx` page with Education & Healthcare initiatives (Skill Development, Holistic Health, Quality Education, Maternal Care).
+- Integrated all 4 program pages (Strengthening Livelihoods, Enhancing Ecosystems, Civic Amenities, Education & Healthcare) into `App.tsx` and `Navbar.tsx`.
+- Applied a consistent premium executive design across all thematic program pages using the Forest Dark/Golden/Cream palette and Framer Motion animations.

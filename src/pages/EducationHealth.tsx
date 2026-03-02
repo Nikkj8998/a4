@@ -17,27 +17,49 @@ const EducationHealth = () => {
     "/attached_assets/shared_image_(14)_1768208685605.jfif",
     "/attached_assets/shared_image_(15)_1768208685604.jfif",
     "/attached_assets/shared_image_(32)_1768284257274.jfif",
-    "/attached_assets/shared_image_(33)_1768284257273.jfif"
+    "/attached_assets/shared_image_(33)_1768284257273.jfif",
+    "/attached_assets/shared_image_(17)_1768292922463.jfif",
+    "/attached_assets/shared_image_(18)_1768284257276.jfif",
+    "/attached_assets/shared_image_(21)_1768284257275.jfif",
+    "/attached_assets/shared_image_(22)_1768292922462.jfif"
   ];
 
   const initiatives = [
     {
-      title: "Skill Development & Digital Literacy",
-      subtitle: "Education Beyond the Classroom",
       icon: <GraduationCap className="w-10 h-10" />,
-      content: "Education beyond the classroom. We equip youth and adults with essential life skills, vocational trade training, and financial/digital literacy, preparing them to thrive in the modern digital economy.",
+      title: "Skill Development & Digital Literacy",
+      subtitle: "Empowering Rural Youth",
+      content: "We equip youth and adults with essential life skills, vocational trade training, and digital literacy. Our programs are designed to bridge the urban-rural divide by providing practical training in modern technologies and financial management.",
       features: ["Life Skill Education", "Vocational Training", "Digital Literacy", "Financial Literacy"],
       image: "/attached_assets/shared_image_(32)_1768284257274.jfif",
       color: "bg-blue-50"
     },
     {
-      title: "Holistic Health & Social Security",
-      subtitle: "Nurturing Well-being",
       icon: <Heart className="w-10 h-10" />,
-      content: "Our health mission is comprehensive: from nutrition awareness and preventive care camps to mental health support. We also facilitate access to diagnostic services and health insurance, protecting families from medical financial crises.",
+      title: "Holistic Health & Social Security",
+      subtitle: "Nurturing Community Well-being",
+      content: "Our comprehensive health mission covers nutrition awareness, preventive care camps, and mental health support. We also facilitate access to government health schemes and insurance, ensuring no family faces a medical financial crisis.",
       features: ["Nutrition Awareness", "Preventive Care", "Insurance Access", "Mental Health Support"],
       image: "/attached_assets/shared_image_(13)_1768208685605.jfif",
       color: "bg-red-50"
+    },
+    {
+      icon: <BookOpen className="w-10 h-10" />,
+      title: "Quality Education for All",
+      subtitle: "Foundations for a Brighter Future",
+      content: "ASTHA bridges the educational gap through remedial coaching and infrastructure support for local schools. We place a special emphasis on girl child education and teacher training to ensure sustainable educational growth in rural areas.",
+      features: ["Remedial Coaching", "School Infrastructure", "Girl Child Education", "Teacher Training"],
+      image: "/attached_assets/shared_image_(31)_1768292922461.jfif",
+      color: "bg-emerald-50"
+    },
+    {
+      icon: <Users className="w-10 h-10" />,
+      title: "Maternal & Child Healthcare",
+      subtitle: "Ensuring Safe Beginnings",
+      content: "We focus on reducing maternal and infant mortality through prenatal and postnatal counseling, immunization drives, and nutritional support. Our community health workers ensure that every mother and child receives personalized care.",
+      features: ["Prenatal Counseling", "Immunization Drives", "Nutritional Support", "Postnatal Care"],
+      image: "/attached_assets/shared_image_(36)_1768292922458.jfif",
+      color: "bg-amber-50"
     }
   ];
 
@@ -66,7 +88,7 @@ const EducationHealth = () => {
                 Thematic Program
               </span>
               <h1 className="font-display text-5xl md:text-8xl text-cream mb-8 leading-[1.1]">
-                Education <br /> <span className="text-golden">& Health</span>
+                Education & <br /> <span className="text-golden">Healthcare</span>
               </h1>
               <p className="font-body text-xl md:text-2xl text-cream/90 max-w-4xl mx-auto leading-relaxed font-light">
                 Improving quality of life by nurturing potential and ensuring community well-being through holistic health and lifelong learning.
@@ -98,7 +120,8 @@ const EducationHealth = () => {
                     {[
                       { icon: <BookOpen className="text-blue-600" />, text: "Lifelong learning and skill acquisition" },
                       { icon: <Microscope className="text-red-600" />, text: "Diagnostic and preventive healthcare" },
-                      { icon: <Users className="text-emerald-600" />, text: "Community-driven health and literacy" }
+                      { icon: <Users className="text-emerald-600" />, text: "Community-driven health and literacy" },
+                      { icon: <ShieldCheck className="text-amber-600" />, text: "Maternal and child wellness programs" }
                     ].map((item, idx) => (
                       <div key={idx} className="flex items-center gap-4 p-4 rounded-xl bg-white shadow-sm border border-border/50 hover:shadow-md transition-shadow">
                         <div className="flex-shrink-0 w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center">
@@ -220,18 +243,18 @@ const EducationHealth = () => {
               <ScrollReveal delay={0.3}>
                 <div className="flex flex-wrap justify-center gap-8">
                   <div className="text-center">
-                    <div className="text-4xl md:text-5xl font-display text-golden mb-2">People</div>
-                    <div className="text-cream/60 uppercase tracking-widest text-xs font-bold">Nurturing Potential</div>
+                    <div className="text-4xl md:text-5xl font-display text-golden mb-2">15k+</div>
+                    <div className="text-cream/60 uppercase tracking-widest text-xs font-bold">Students Reached</div>
                   </div>
                   <div className="w-px h-16 bg-white/10 hidden md:block"></div>
                   <div className="text-center">
-                    <div className="text-4xl md:text-5xl font-display text-golden mb-2">Health</div>
-                    <div className="text-cream/60 uppercase tracking-widest text-xs font-bold">Holistic Care</div>
+                    <div className="text-4xl md:text-5xl font-display text-golden mb-2">50+</div>
+                    <div className="text-cream/60 uppercase tracking-widest text-xs font-bold">Health Camps</div>
                   </div>
                   <div className="w-px h-16 bg-white/10 hidden md:block"></div>
                   <div className="text-center">
-                    <div className="text-4xl md:text-5xl font-display text-golden mb-2">Education</div>
-                    <div className="text-cream/60 uppercase tracking-widest text-xs font-bold">Lifelong Learning</div>
+                    <div className="text-4xl md:text-5xl font-display text-golden mb-2">100%</div>
+                    <div className="text-cream/60 uppercase tracking-widest text-xs font-bold">Commitment</div>
                   </div>
                 </div>
               </ScrollReveal>
