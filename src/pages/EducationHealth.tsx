@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { GraduationCap, Heart, BookOpen, Microscope, Users, ShieldCheck, Globe } from 'lucide-react';
+import { GraduationCap, Heart, BookOpen, Microscope, Users, ShieldCheck } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import ScrollReveal from '../components/ScrollReveal';
@@ -28,38 +28,20 @@ const EducationHealth = () => {
     {
       icon: <GraduationCap className="w-10 h-10" />,
       title: "Skill Development & Digital Literacy",
-      subtitle: "Empowering Rural Youth",
-      content: "We equip youth and adults with essential life skills, vocational trade training, and digital literacy. Our programs are designed to bridge the urban-rural divide by providing practical training in modern technologies and financial management.",
-      features: ["Life Skill Education", "Vocational Training", "Digital Literacy", "Financial Literacy"],
+      subtitle: "Education beyond the classroom",
+      content: "Education beyond the classroom. We equip youth and adults with essential life skills, vocational trade training, and financial/digital literacy, preparing them to thrive in the modern digital economy.",
+      features: ["Life Skill Education", "Vocational Training", "Financial Literacy", "Digital Literacy"],
       image: "/attached_assets/shared_image_(32)_1768284257274.jfif",
       color: "bg-blue-50"
     },
     {
       icon: <Heart className="w-10 h-10" />,
       title: "Holistic Health & Social Security",
-      subtitle: "Nurturing Community Well-being",
-      content: "Our comprehensive health mission covers nutrition awareness, preventive care camps, and mental health support. We also facilitate access to government health schemes and insurance, ensuring no family faces a medical financial crisis.",
-      features: ["Nutrition Awareness", "Preventive Care", "Insurance Access", "Mental Health Support"],
+      subtitle: "Holistic Health and Nutrition awareness",
+      content: "Our health mission is comprehensive: from nutrition awareness and preventive care camps to mental health support. We also facilitate access to diagnostic services and health insurance, protecting families from medical financial crises.",
+      features: ["Nutrition Awareness", "Preventive Care", "Insurance Access", "Diagnostic Services", "Mental Health Care"],
       image: "/attached_assets/shared_image_(13)_1768208685605.jfif",
       color: "bg-red-50"
-    },
-    {
-      icon: <BookOpen className="w-10 h-10" />,
-      title: "Quality Education for All",
-      subtitle: "Foundations for a Brighter Future",
-      content: "ASTHA bridges the educational gap through remedial coaching and infrastructure support for local schools. We place a special emphasis on girl child education and teacher training to ensure sustainable educational growth in rural areas.",
-      features: ["Remedial Coaching", "School Infrastructure", "Girl Child Education", "Teacher Training"],
-      image: "/attached_assets/shared_image_(31)_1768292922461.jfif",
-      color: "bg-emerald-50"
-    },
-    {
-      icon: <Users className="w-10 h-10" />,
-      title: "Maternal & Child Healthcare",
-      subtitle: "Ensuring Safe Beginnings",
-      content: "We focus on reducing maternal and infant mortality through prenatal and postnatal counseling, immunization drives, and nutritional support. Our community health workers ensure that every mother and child receives personalized care.",
-      features: ["Prenatal Counseling", "Immunization Drives", "Nutritional Support", "Postnatal Care"],
-      image: "/attached_assets/shared_image_(36)_1768292922458.jfif",
-      color: "bg-amber-50"
     }
   ];
 
@@ -110,18 +92,18 @@ const EducationHealth = () => {
                     Community Well-being
                   </div>
                   <h2 className="font-display text-4xl md:text-5xl text-primary leading-tight">
-                    Nurturing Potential <br /> for a Brighter Future
+                    Nurturing Potential through <br /> Education & Healthcare
                   </h2>
                   <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-                    We believe that health and education are the twin pillars of human development. Our programs focus on empowering individuals with knowledge and ensuring they have the physical and mental health to use it.
+                    We believe that health and education are the twin pillars of human development. Our programs focus on empowering individuals with knowledge and ensuring they have the physical and mental health to thrive.
                   </p>
                   
                   <div className="space-y-6">
                     {[
-                      { icon: <BookOpen className="text-blue-600" />, text: "Lifelong learning and skill acquisition" },
-                      { icon: <Microscope className="text-red-600" />, text: "Diagnostic and preventive healthcare" },
-                      { icon: <Users className="text-emerald-600" />, text: "Community-driven health and literacy" },
-                      { icon: <ShieldCheck className="text-amber-600" />, text: "Maternal and child wellness programs" }
+                      { icon: <BookOpen className="text-blue-600" />, text: "Skill development and vocational training" },
+                      { icon: <Microscope className="text-red-600" />, text: "Holistic health and nutrition awareness" },
+                      { icon: <Users className="text-emerald-600" />, text: "Digital and financial literacy programs" },
+                      { icon: <ShieldCheck className="text-amber-600" />, text: "Access to healthcare insurance and diagnostics" }
                     ].map((item, idx) => (
                       <div key={idx} className="flex items-center gap-4 p-4 rounded-xl bg-white shadow-sm border border-border/50 hover:shadow-md transition-shadow">
                         <div className="flex-shrink-0 w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center">
@@ -243,12 +225,12 @@ const EducationHealth = () => {
               <ScrollReveal delay={0.3}>
                 <div className="flex flex-wrap justify-center gap-8">
                   <div className="text-center">
-                    <div className="text-4xl md:text-5xl font-display text-golden mb-2">15k+</div>
-                    <div className="text-cream/60 uppercase tracking-widest text-xs font-bold">Students Reached</div>
+                    <div className="text-4xl md:text-5xl font-display text-golden mb-2">10k+</div>
+                    <div className="text-cream/60 uppercase tracking-widest text-xs font-bold">People Impacted</div>
                   </div>
                   <div className="w-px h-16 bg-white/10 hidden md:block"></div>
                   <div className="text-center">
-                    <div className="text-4xl md:text-5xl font-display text-golden mb-2">50+</div>
+                    <div className="text-4xl md:text-5xl font-display text-golden mb-2">35+</div>
                     <div className="text-cream/60 uppercase tracking-widest text-xs font-bold">Health Camps</div>
                   </div>
                   <div className="w-px h-16 bg-white/10 hidden md:block"></div>
