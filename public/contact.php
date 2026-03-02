@@ -4,13 +4,11 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type, Authorization");
 
-// Handle preflight requests
 if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
     http_response_code(200);
     exit(0);
 }
 
-// Ensure only POST requests are allowed
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
     echo json_encode(["success" => false, "message" => "Method not allowed. Use POST."]);
@@ -21,37 +19,36 @@ error_reporting(E_ALL);
 ini_set('display_errors', 0);
 ini_set('log_errors', 1);
 
-// Debug function
 function debugLog($message) {
     file_put_contents(__DIR__ . '/contact_debug.log', date('Y-m-d H:i:s') . " - " . $message . "\n", FILE_APPEND);
 }
 
 debugLog("=== Script started ===");
 
-// ─── Database Configuration ───────────────────────────────────────────
-$host     = "localhost";
-$dbname   = "astharural_contact_form";
-$username = "astharural_contact_user";
-$password = "Astha@2025";
+$host     = getenv('DB_HOST') ?: 'localhost';
+$dbname   = getenv('DB_NAME') ?: '';
+$username = getenv('DB_USER') ?: '';
+$password = getenv('DB_PASS') ?: '';
 
-try {
-    $conn = new mysqli($host, $username, $password, $dbname);
-    
-    if ($conn->connect_error) {
-        debugLog("Database connection failed: " . $conn->connect_error);
-        // Continue without DB — emails will still be sent
+$conn = null;
+if ($dbname && $username && $password) {
+    try {
+        $conn = new mysqli($host, $username, $password, $dbname);
+        if ($conn->connect_error) {
+            debugLog("Database connection failed: " . $conn->connect_error);
+            $conn = null;
+        }
+    } catch (Exception $e) {
+        debugLog("Database exception: " . $e->getMessage());
         $conn = null;
     }
-} catch (Exception $e) {
-    debugLog("Database exception: " . $e->getMessage());
-    $conn = null;
+} else {
+    debugLog("Database credentials not configured — skipping DB.");
 }
 
-// ─── Parse Input ──────────────────────────────────────────────────────
 $input = json_decode(file_get_contents('php://input'), true);
 
 if (json_last_error() !== JSON_ERROR_NONE) {
-    // Fallback to form data
     $input = $_POST;
 }
 
@@ -60,9 +57,8 @@ $email   = trim($input['email'] ?? '');
 $message = trim($input['message'] ?? '');
 $phone   = trim($input['phone'] ?? '');
 
-debugLog("Extracted values - Name: '$name', Email: '$email', Phone: '$phone', Message: '$message'");
+debugLog("Extracted values - Name: '$name', Email: '$email', Phone: '$phone'");
 
-// ─── Validation ───────────────────────────────────────────────────────
 if (empty($name) || empty($email)) {
     http_response_code(400);
     echo json_encode(["success" => false, "message" => "Name and email are required fields"]);
@@ -81,15 +77,12 @@ if (strlen($name) < 2) {
     exit();
 }
 
-// ─── Save to Database (Optional) ─────────────────────────────────────
 $insert_id = null;
 if ($conn && $conn->ping()) {
     try {
         $stmt = $conn->prepare("INSERT INTO contact_submissions (name, email, phone, message) VALUES (?, ?, ?, ?)");
-        
         if ($stmt) {
             $stmt->bind_param("ssss", $name, $email, $phone, $message);
-            
             if ($stmt->execute()) {
                 $insert_id = $stmt->insert_id;
                 debugLog("Database insert successful - ID: $insert_id");
@@ -105,41 +98,37 @@ if ($conn && $conn->ping()) {
     debugLog("Database not connected or unreachable");
 }
 
-// ─── Email Configuration ──────────────────────────────────────────────
-$adminEmail = "info@astharural.org";
-$currentDate = date('Y-m-d H:i:s');
-$primaryColor = "#2d4a3e"; // Forest green from website
-$accentColor = "#c2410c";  // Terracotta accent from website
-$bgColor = "#fdfbf7";      // Cream background from website
-$logoUrl = "https://astharural.org/assets/logo.png"; // Assuming public path based on src
+$adminEmail   = getenv('ADMIN_EMAIL') ?: 'info@astharural.org';
+$currentDate  = date('Y-m-d H:i:s');
+$primaryColor = "#2d4a3e";
+$accentColor  = "#c2410c";
+$bgColor      = "#fdfbf7";
+$logoUrl      = "https://astharural.org/assets/logo.png";
 
-// Admin notification email headers
-$headers  = "MIME-Version: 1.0" . "\r\n";
-$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-$headers .= "From: Astha Foundation <info@astharural.org>\r\n";
+$headers  = "MIME-Version: 1.0\r\n";
+$headers .= "Content-type:text/html;charset=UTF-8\r\n";
+$headers .= "From: Astha Foundation <" . $adminEmail . ">\r\n";
 $headers .= "Reply-To: " . $name . " <" . $email . ">\r\n";
 $headers .= "X-Mailer: PHP/" . phpversion() . "\r\n";
 $headers .= "X-Priority: 1\r\n";
 $headers .= "Importance: High\r\n";
 
-$adminSubject = "🔔 New Contact Form Submission - Astha Foundation";
+$adminSubject = "New Contact Form Submission - Astha Foundation";
 
-$adminMessage = '
-<!DOCTYPE html>
+$adminMessage = '<!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>New Contact Form Submission</title>
   <style>
-    body { font-family: "Source Sans 3", Arial, sans-serif; margin: 0; padding: 0; background-color: ' . $bgColor . '; color: #1a1a1a; }
-    .container { max-width: 600px; margin: 20px auto; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: ' . $bgColor . '; color: #1a1a1a; }
+    .container { max-width: 600px; margin: 20px auto; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 12px; overflow: hidden; }
     .header { background-color: ' . $primaryColor . '; padding: 30px 20px; text-align: center; }
     .logo { max-width: 180px; height: auto; margin-bottom: 15px; }
-    .header h1 { color: #ffffff; margin: 0; font-size: 22px; font-weight: 600; letter-spacing: 0.5px; }
+    .header h1 { color: #ffffff; margin: 0; font-size: 22px; font-weight: 600; }
     .content { padding: 40px 30px; line-height: 1.6; }
     .section-title { color: ' . $primaryColor . '; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; border-bottom: 2px solid ' . $bgColor . '; padding-bottom: 8px; }
-    .info-grid { margin-bottom: 30px; }
     .info-item { margin-bottom: 12px; display: flex; }
     .label { font-weight: 600; color: #4b5563; width: 100px; font-size: 14px; }
     .value { color: #1f2937; flex: 1; font-size: 15px; }
@@ -156,67 +145,43 @@ $adminMessage = '
     </div>
     <div class="content">
       <div class="section-title">Submission Details</div>
-      <div class="info-grid">
-        <div class="info-item">
-          <span class="label">Name</span>
-          <span class="value">' . htmlspecialchars($name) . '</span>
-        </div>
-        <div class="info-item">
-          <span class="label">Email</span>
-          <span class="value">' . htmlspecialchars($email) . '</span>
-        </div>
-        <div class="info-item">
-          <span class="label">Phone</span>
-          <span class="value">' . htmlspecialchars($phone) . '</span>
-        </div>
-      </div>
-      
-      <div class="section-title">Message Content</div>
-      <div class="message-box">
-        ' . nl2br(htmlspecialchars($message)) . '
-      </div>
-      
-      <div class="timestamp">
-        Received on: ' . $currentDate . '
-      </div>
+      <div class="info-item"><span class="label">Name</span><span class="value">' . htmlspecialchars($name) . '</span></div>
+      <div class="info-item"><span class="label">Email</span><span class="value">' . htmlspecialchars($email) . '</span></div>
+      <div class="info-item"><span class="label">Phone</span><span class="value">' . htmlspecialchars($phone) . '</span></div>
+      <div class="section-title" style="margin-top:20px;">Message Content</div>
+      <div class="message-box">' . nl2br(htmlspecialchars($message)) . '</div>
+      <div class="timestamp">Received on: ' . $currentDate . '</div>
     </div>
-    <div class="footer">
-      &copy; ' . date("Y") . ' Astha Foundation. All rights reserved.<br>
-      This is an automated notification from astharural.org
-    </div>
+    <div class="footer">&copy; ' . date("Y") . ' Astha Foundation. All rights reserved.</div>
   </div>
 </body>
 </html>';
 
-// ─── Thank You email to user ──────────────────────────────────────────
 $userSubject = "Thank You for Contacting Astha Foundation";
 
-$userHeaders  = "MIME-Version: 1.0" . "\r\n";
-$userHeaders .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-$userHeaders .= "From: Astha Foundation <info@astharural.org>\r\n";
-$userHeaders .= "Reply-To: info@astharural.org\r\n";
+$userHeaders  = "MIME-Version: 1.0\r\n";
+$userHeaders .= "Content-type:text/html;charset=UTF-8\r\n";
+$userHeaders .= "From: Astha Foundation <" . $adminEmail . ">\r\n";
+$userHeaders .= "Reply-To: " . $adminEmail . "\r\n";
 $userHeaders .= "X-Mailer: PHP/" . phpversion() . "\r\n";
 
-$userMessage = '
-<!DOCTYPE html>
+$userMessage = '<!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Thank You - Astha Foundation</title>
   <style>
-    body { font-family: "Source Sans 3", Arial, sans-serif; margin: 0; padding: 0; background-color: ' . $bgColor . '; color: #1a1a1a; }
-    .container { max-width: 600px; margin: 20px auto; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: ' . $bgColor . '; color: #1a1a1a; }
+    .container { max-width: 600px; margin: 20px auto; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 12px; overflow: hidden; }
     .header { background-color: ' . $primaryColor . '; padding: 30px 20px; text-align: center; }
     .logo { max-width: 180px; height: auto; margin-bottom: 15px; }
-    .header h1 { color: #ffffff; margin: 0; font-size: 22px; font-weight: 600; letter-spacing: 0.5px; }
+    .header h1 { color: #ffffff; margin: 0; font-size: 22px; font-weight: 600; }
     .content { padding: 40px 30px; line-height: 1.7; text-align: center; }
     .content p { margin-bottom: 20px; color: #374151; }
     .highlight { color: ' . $primaryColor . '; font-weight: 700; }
-    .btn { display: inline-block; padding: 14px 30px; background-color: ' . $accentColor . '; color: #ffffff !important; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 15px; margin: 20px 0; transition: background 0.3s ease; }
+    .btn { display: inline-block; padding: 14px 30px; background-color: ' . $accentColor . '; color: #ffffff; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 15px; margin: 20px 0; }
     .footer { padding: 25px; text-align: center; font-size: 12px; color: #6b7280; background: #f9fafb; border-top: 1px solid #e5e7eb; }
-    .social-links { margin-top: 10px; }
-    .social-links a { color: ' . $primaryColor . '; text-decoration: none; margin: 0 10px; }
   </style>
 </head>
 <body>
@@ -232,15 +197,13 @@ $userMessage = '
       <a href="https://astharural.org" class="btn">Explore Our Work</a>
       <p>Best Regards,<br><span class="highlight">Team Astha Foundation</span></p>
     </div>
-    <div class="footer">
-      &copy; ' . date("Y") . ' Astha Foundation | Velhe Taluka, Pune<br>
+    <div class="footer">&copy; ' . date("Y") . ' Astha Foundation | Velhe Taluka, Pune<br>
       <a href="https://astharural.org" style="color:' . $primaryColor . '; text-decoration:none;">www.astharural.org</a>
     </div>
   </div>
 </body>
 </html>';
 
-// ─── Send Emails ──────────────────────────────────────────────────────
 $adminMailSent = @mail($adminEmail, $adminSubject, $adminMessage, $headers);
 $userMailSent  = @mail($email, $userSubject, $userMessage, $userHeaders);
 
@@ -249,13 +212,10 @@ debugLog("User email sent: " . ($userMailSent ? "Yes" : "No"));
 
 if ($adminMailSent || $userMailSent) {
     echo json_encode([
-        "success"   => true,
-        "message"   => "Message received successfully! We'll get back to you soon.",
-        "insert_id" => $insert_id,
-        "emails_sent" => [
-            "admin" => $adminMailSent,
-            "user" => $userMailSent
-        ]
+        "success"     => true,
+        "message"     => "Message received successfully! We'll get back to you soon.",
+        "insert_id"   => $insert_id,
+        "emails_sent" => ["admin" => $adminMailSent, "user" => $userMailSent]
     ]);
 } else {
     debugLog("Failed to send emails");
@@ -266,7 +226,6 @@ if ($adminMailSent || $userMailSent) {
     ]);
 }
 
-// ─── Cleanup ──────────────────────────────────────────────────────────
 if ($conn) {
     $conn->close();
 }
