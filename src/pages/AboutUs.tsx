@@ -28,36 +28,43 @@ const AboutUs = () => {
       name: "Satish Khade",
       role: "Trustee [Civil Engineer, Water Expert, and Environmental Advocate]",
       image: "/images/satish-khade.jfif",
+      bio: "Satish Khade is a B.E. Civil engineer and renowned water expert dedicated to community 'water literacy' for over 12 years. Author of Abhinav Jalnayak and a prolific columnist, he has delivered 600+ environmental lectures. As a Rotary District Director, he has implemented vital water projects across 142 villages, earning the prestigious 'Paryavaran Rakshak' award.",
     },
     {
       name: "Mr Raosaheb Badhe",
       role: "Chief Operating Officer (COO)",
       image: "/images/raosaheb-badhe.png",
+      bio: "Raosaheb Badhe serves as the Chief Operating Officer, overseeing the foundation's ground-level operations and project implementation across rural Maharashtra. With extensive field experience, he bridges the gap between strategic planning and community impact, ensuring that development initiatives are effectively delivered to the Western Ghats region.",
     },
     {
       name: "Sanjay Mahadeo Bobade",
       role: "Business Transformation Leader & Growth Facilitator",
       image: "/images/sanjay-bobade.png",
+      bio: "Sanjay Mahadeo Bobade is a dedicated Business Transformation Leader focused on creating impactful solutions for Indian society. As Founder of Yuga Globe Tech, he drives initiatives in Health-Insurance, Agri-tech, and Vocational Enrichment. With a background at Microsoft, PwC, and NISG, he excels in digital government transformation. He is an alumnus of IIT Mumbai and IIM Ahmedabad.",
     },
     {
       name: "Pramod Dattatraya Kale",
       role: "Trustee",
       icon: <Users className="w-8 h-8" />,
+      bio: "Pramod Dattatraya Kale serves as a Trustee, bringing his extensive experience and dedication to the foundation's mission. He plays a vital role in guiding the strategic direction and ensuring the organization remains committed to its core values of social transformation and human advancement in rural communities.",
     },
     {
       name: "Sudam Dagadu Zende",
-      role: "Trustee",
-      icon: <Users className="w-8 h-8" />,
+      role: "Trustee [Champion of Banking, Rural Empowerment, and Social Change]",
+      image: "/images/sudam-zende.png",
+      bio: "Sudam Dagadu Zende is a distinguished banking professional and social leader. An M.Sc. and LL.B. graduate, he served as Chief Manager at State Bank of India. He has empowered rural communities by forming 400+ Self Help Groups and authoring two books on the subject. Currently, he is Managing Trustee of ABSTHA and Director of Rajyavardhini Bank.",
     },
     {
       name: "Biren Sudhir Vora",
       role: "Bridging Corporate Leadership, Academia, and Social Impact",
       image: "/images/biren-vora.png",
+      bio: "Biren Sudhir Vora is a multi-disciplinary leader with over three decades of corporate experience. An IIT Madras alumnus and PhD candidate at IIT Delhi, he serves as Professor-of-Practice at Navrachana University. As Founder of Ekaagra Social & Microfinance Foundation, Biren has driven significant change, including spearheading water security initiatives for 180 villages in Gujarat.",
     },
     {
       name: "Dattatraya Maruti Mulay",
-      role: "Founder Trustee, x-SBI",
-      icon: <Award className="w-8 h-8" />,
+      role: "Founder Trustee, x-SBI [Veteran Banking Professional & Rural Development Specialist]",
+      image: "/images/dattatraya-mulay.png",
+      bio: "D. M. Mulay is a B. Com graduate with a distinguished career in banking and rural development. A former Branch Manager at Bank of Maharashtra, he also served as a Field Officer for the IFAD-assisted Maharashtra Rural Credit Project. His background includes international poverty alleviation training and extensive experience across various government departments.",
     },
   ];
 
@@ -74,13 +81,13 @@ const AboutUs = () => {
       name: "Dr Anagha Joshi",
       role: "Director and Senior Consultant",
       experience: "25+ Y",
-      bio: "Profile Needed",
+      bio: "Dr. Anagha Joshi is a highly respected Director and Senior Consultant with over 25 years of specialized experience. Her expertise lies in strategic advisory and implementing complex development projects, providing invaluable guidance to ensure the foundation's initiatives are both sustainable and impactful for the communities they serve.",
       icon: <Briefcase className="w-8 h-8" />,
     },
     {
       name: "Meena Patel",
-      role: "Profile Needed",
-      bio: "Profile Needed",
+      role: "Senior Advisor",
+      bio: "Meena Patel brings a wealth of knowledge and a professional perspective to the advisory board. Her contributions are instrumental in shaping the foundation's outreach strategies and strengthening its collaborative frameworks, ensuring that every project is aligned with the highest standards of social advancement.",
       icon: <UserCircle className="w-8 h-8" />,
     },
     {
@@ -193,12 +200,12 @@ const AboutUs = () => {
               </div>
             </ScrollReveal>
 
-            <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
               {trustees.map((member, index) => (
                 <ScrollReveal key={member.name} delay={index * 0.05}>
-                  <div className="bg-white p-6 rounded-2xl h-full shadow-sm border border-border/30 hover:border-golden/50 transition-all group text-center">
-                    <div className="w-32 h-32 bg-golden/10 rounded-2xl mx-auto mb-6 flex items-center justify-center text-golden group-hover:bg-golden group-hover:text-white transition-colors overflow-hidden shadow-inner">
-                      {'image' in member ? (
+                  <div className="bg-white p-6 rounded-2xl h-full shadow-sm border border-border/30 hover:border-golden/50 transition-all group text-center flex flex-col">
+                    <div className="w-32 h-32 bg-golden/10 rounded-2xl mx-auto mb-6 flex items-center justify-center text-golden group-hover:bg-golden group-hover:text-white transition-colors overflow-hidden shadow-inner shrink-0">
+                      {'image' in member && member.image ? (
                         <img 
                           src={(member as any).image} 
                           alt={member.name} 
@@ -208,12 +215,15 @@ const AboutUs = () => {
                         <div className="p-4">{(member as any).icon}</div>
                       )}
                     </div>
-                    <div>
+                    <div className="flex flex-col flex-grow">
                       <h4 className="font-display text-xl mb-2 text-primary">
                         {member.name}
                       </h4>
-                      <p className="font-body text-sm text-muted-foreground leading-relaxed">
+                      <p className="font-body text-[10px] font-bold text-golden uppercase tracking-widest mb-4">
                         {member.role}
+                      </p>
+                      <p className="font-body text-xs text-muted-foreground leading-relaxed">
+                        {member.bio}
                       </p>
                     </div>
                   </div>
